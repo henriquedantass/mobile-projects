@@ -50,13 +50,13 @@ export default function Home() {
         placeholderTextColor="#555"
         onChangeText={setNewSkill}
       />
-      <Button onPress={handleNewAddSkill} />
+      <Button title="Add" onPress={handleNewAddSkill} />
 
       <Text style={[styles.title, { marginTop: 30 }]}>My Skills</Text>
       <FlatList
         data={mySkills}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <SkillCard title={item} />}
+        renderItem={({ item }) => <SkillCard title={item.name} />}
       />
     </View>
   );
