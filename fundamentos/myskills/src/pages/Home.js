@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TextInput,
   Platform,
-  TouchableOpacity,
   FlatList,
-  ScrollView,
 } from "react-native";
 import { Button } from "../components/Button";
 import { SkillCard } from "../components/SkillCard";
@@ -15,14 +13,27 @@ import { SkillCard } from "../components/SkillCard";
 export default function Home() {
   const [newSkill, setNewSkill] = useState();
   const [mySkills, setMySkills] = useState([]);
+  const [greatings, setGreatings] = useState("");
 
   function handleNewAddSkill() {
     setMySkills((oldState) => [...oldState, newSkill]);
   }
 
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
+      setGreatings("Good morning");
+    } else if (currentHour >= 12 && currentHour < 18) {
+      setGreatings("Good afternoon");
+    } else {
+      setGreatings("Good night");
+    }
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome, Henrique Dantas</Text>
+      <Text style={styles.greatings}>{greatings}</Text>
       <TextInput
         style={styles.input}
         placeholder="New skill"
@@ -52,6 +63,10 @@ const styles = StyleSheet.create({
     color: "#f1f1f1",
     fontSize: 24,
     fontWeight: "bold",
+  },
+  greatings: {
+    color: "#A330F7",
+    fontSize: 18,
   },
   input: {
     backgroundColor: "#1F1e25",
