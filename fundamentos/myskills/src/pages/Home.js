@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -9,6 +9,13 @@ import {
 } from "react-native";
 
 export default function Home() {
+  const [newSkill, setNewSkill] = useState();
+  const [mySkills, setMySkills] = useState([]);
+
+  function handleNewAddSkill() {
+    setMySkills((oldState) => [...oldState, newSkill]);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome, Henrique Dantas</Text>
@@ -16,11 +23,21 @@ export default function Home() {
         style={styles.input}
         placeholder="New skill"
         placeholderTextColor="#555"
+        onChangeText={setNewSkill}
       />
-      <TouchableOpacity style={styles.button} activeOpacity={0.7}>
+      <TouchableOpacity
+        style={styles.button}
+        activeOpacity={0.7}
+        onPress={handleNewAddSkill}
+      >
         <Text style={styles.buttonText}>Add</Text>
       </TouchableOpacity>
       <Text style={[styles.title, { marginTop: 30 }]}>My Skills</Text>
+      {mySkills.map((skill) => (
+        <TouchableOpacity style={styles.buttonSkill} key={Math.random()}>
+          <Text style={styles.skill}>{skill}</Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
@@ -56,6 +73,18 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFF",
     fontSize: 18,
+    fontWeight: "bold",
+  },
+  buttonSkill: {
+    backgroundColor: "#1F1E25",
+    padding: 15,
+    borderRadius: 50,
+    marginTop: 15,
+    alignItems: "center",
+  },
+  skill: {
+    color: "#fff",
+    fontSize: 20,
     fontWeight: "bold",
   },
 });
