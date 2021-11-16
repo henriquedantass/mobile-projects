@@ -20,6 +20,10 @@ export default function Home() {
   const [mySkills, setMySkills] = useState<MySkillsProps[]>([]);
   const [greatings, setGreatings] = useState("");
 
+  function handleRemoveSkill(selectedSkillId: string) {
+    setMySkills(mySkills.filter((skill) => skill.id !== selectedSkillId));
+  }
+
   function handleNewAddSkill() {
     const data = {
       id: String(new Date().getTime()),
@@ -56,7 +60,12 @@ export default function Home() {
       <FlatList
         data={mySkills}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <SkillCard title={item.name} />}
+        renderItem={({ item }) => (
+          <SkillCard
+            onPress={() => handleRemoveSkill(item.id)}
+            title={item.name}
+          />
+        )}
       />
     </View>
   );
