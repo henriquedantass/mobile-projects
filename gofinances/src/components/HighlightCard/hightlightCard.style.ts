@@ -8,7 +8,6 @@ export const Container = styled.View`
   margin-right: 16px;
   padding: 19px 23px;
   padding-bottom: 42px;
-  max-height: ${RFValue(150)}px;
   width: ${RFValue(300)}px;
 `;
 
