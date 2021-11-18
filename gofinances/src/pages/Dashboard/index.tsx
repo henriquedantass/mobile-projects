@@ -1,4 +1,5 @@
 import React from "react";
+import { HighlightCard } from "../../components/HighlightCard";
 import {
   Container,
   Header,
@@ -9,7 +10,7 @@ import {
   UserInfo,
   UserName,
   UserWrapper,
-} from "./styles";
+} from "./dashboard.style";
 
 export const Dashboard = () => {
   return (
@@ -27,6 +28,7 @@ export const Dashboard = () => {
           <Icon name="power" />
         </UserWrapper>
       </Header>
+      <HighlightCard />
     </Container>
   );
 };
