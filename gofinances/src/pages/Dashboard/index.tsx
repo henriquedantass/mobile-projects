@@ -21,8 +21,9 @@ import {
 export const Dashboard = () => {
   const data = [
     {
+      type: "positive",
       title: "Desenvolvimento de website",
-      amount: "R$2000,00",
+      amount: "R$2500,00",
       category: {
         name: "Vendas",
         icon: "dollar-sign",
@@ -31,10 +32,11 @@ export const Dashboard = () => {
     },
 
     {
-      title: "Desenvolvimento de aplicativo",
-      amount: "R$2000,00",
+      type: "negative",
+      title: "Aluguel",
+      amount: "R$500,00",
       category: {
-        name: "Vendas",
+        name: "Casa",
         icon: "dollar-sign",
       },
       date: "13/02/2021",
