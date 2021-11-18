@@ -10,6 +10,7 @@ import {
   UserInfo,
   UserName,
   UserWrapper,
+  HighlightCards,
 } from "./dashboard.style";
 
 export const Dashboard = () => {
@@ -28,7 +29,15 @@ export const Dashboard = () => {
           <Icon name="power" />
         </UserWrapper>
       </Header>
-      <HighlightCard />
+      <HighlightCards
+        contentContainerStyle={{ paddingHorizontal: 24 }}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        <HighlightCard />
+        <HighlightCard />
+        <HighlightCard />
+      </HighlightCards>
     </Container>
   );
 };
