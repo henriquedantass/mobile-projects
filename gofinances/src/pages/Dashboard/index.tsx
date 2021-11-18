@@ -2,6 +2,7 @@ import React from "react";
 import {
   Container,
   Header,
+  Icon,
   Photo,
   User,
   UserGreeting,
@@ -23,6 +24,7 @@ export const Dashboard = () => {
               <UserName>Henrique</UserName>
             </User>
           </UserInfo>
+          <Icon name="power" />
         </UserWrapper>
       </Header>
     </Container>
