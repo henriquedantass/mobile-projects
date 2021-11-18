@@ -26,7 +26,7 @@ export const Footer = styled.View`
   margin-top: 19px;
 `;
 
-export const Category = styled.Text`
+export const Category = styled.View`
   flex-direction: row;
   align-items: center;
 `;
