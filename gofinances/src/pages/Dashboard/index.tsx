@@ -21,13 +21,13 @@ import {
 } from "./dashboard.style";
 
 export interface DataListProps extends TransactionCardProps {
-  id: number;
+  id: string;
 }
 
 export const Dashboard = () => {
   const data: DataListProps[] = [
     {
-      id: 1,
+      id: "1",
       type: "positive",
       title: "Desenvolvimento de website",
       amount: "R$2500,00",
@@ -37,9 +37,8 @@ export const Dashboard = () => {
       },
       date: "13/02/2021",
     },
-
     {
-      id: 2,
+      id: "2",
       type: "negative",
       title: "Aluguel",
       amount: "R$500,00",
