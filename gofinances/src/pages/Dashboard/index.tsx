@@ -1,5 +1,6 @@
 import React from "react";
 import { HighlightCard } from "../../components/HighlightCard";
+import { TransactionCard } from "../../components/TransactionCard";
 import {
   Container,
   Header,
@@ -11,6 +12,8 @@ import {
   UserName,
   UserWrapper,
   HighlightCards,
+  Transactions,
+  Title,
 } from "./dashboard.style";
 
 export const Dashboard = () => {
@@ -29,6 +32,7 @@ export const Dashboard = () => {
           <Icon name="power" />
         </UserWrapper>
       </Header>
+
       <HighlightCards
         contentContainerStyle={{ paddingHorizontal: 24 }}
         horizontal
@@ -53,6 +57,11 @@ export const Dashboard = () => {
           lastTransaction="01 a 16 de abril"
         />
       </HighlightCards>
+
+      <Transactions>
+        <Title>Listagem</Title>
+        <TransactionCard />
+      </Transactions>
     </Container>
   );
 };
