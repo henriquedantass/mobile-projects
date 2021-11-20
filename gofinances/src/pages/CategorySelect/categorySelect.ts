@@ -3,7 +3,13 @@ import styled from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 import { FlatList } from "react-native";
 
-export const Container = styled.View`
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+interface CategoryProps {
+  isActive: boolean;
+}
+
+export const Container = styled(GestureHandlerRootView)`
   background-color: ${({ theme }) => theme.colors.background};
   flex: 1;
 `;
@@ -27,11 +33,14 @@ export const CategoryList = styled(FlatList)`
   flex: 1;
 `;
 
-export const Category = styled.View`
+export const Category = styled.TouchableOpacity<CategoryProps>`
   align-items: center;
   width: 100%;
   padding: ${RFValue(15)}px;
   flex-direction: row;
+
+  background-color: ${({ theme, isActive }) =>
+    isActive ? theme.colors.secundary_light : theme.colors.background};
 `;
 
 export const Icon = styled(Feather)`

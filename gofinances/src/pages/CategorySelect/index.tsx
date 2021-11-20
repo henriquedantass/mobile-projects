@@ -12,7 +12,6 @@ import {
   Name,
   Separator,
   Footer,
-  ButtonText,
 } from "./categorySelect";
 
 interface Category {
@@ -21,7 +20,7 @@ interface Category {
 }
 
 interface CategorySelectProps {
-  category: string;
+  category: Category;
   setCategory: (name: Category) => void;
   closeSelectCategory: () => void;
 }
@@ -31,6 +30,10 @@ export const CategorySelect = ({
   setCategory,
   closeSelectCategory,
 }: CategorySelectProps) => {
+  function handleCategorySelect(category: Category) {
+    setCategory(category);
+  }
+
   return (
     <Container>
       <Header>
@@ -41,7 +44,10 @@ export const CategorySelect = ({
         data={categories}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
-          <Category>
+          <Category
+            onPress={() => handleCategorySelect(item)}
+            isActive={category.key === item.key}
+          >
             <Icon name={item.icon} />
             <Name>{item.name}</Name>
           </Category>
@@ -51,7 +57,7 @@ export const CategorySelect = ({
       />
 
       <Footer>
-        <Button title="Selecionar" />
+        <Button onPress={closeSelectCategory} title="Selecionar" />
       </Footer>
     </Container>
   );
