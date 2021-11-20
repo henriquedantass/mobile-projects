@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "../../components/Forms/Button";
 import { Input } from "../../components/Forms/Input";
+import { Select } from "../../components/Forms/Select";
 import { TransactionTypeButton } from "../../components/Forms/TransactionTypeButton";
 
 import {
@@ -42,6 +43,7 @@ export const Register = () => {
               type="down"
             />
           </TransactionsTypes>
+          <Select title="Categoria" />
         </Fields>
         <Button title="Enviar" />
       </Form>
